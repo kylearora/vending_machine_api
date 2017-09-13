@@ -9,22 +9,6 @@ router.get("/api/customer/items", function (req,res){
   })
 })
 
-router.get("/api/vendor/money", function (req, res){
-  models.monies.findAll()
-  .then(function(money){
-    res.json(money);
-  })
-})
-
-router.post("/api/vendor/money", function(req, res){
-  const newMoney = models.monies.build({
-    totalmoney : req.body.totalmoney
-  })
-  newMoney.save()
-  .then(function(money){
-    res.json({success:true})
-  })
-})
 
 //Use postman to input items into table in JSON format
 //for postman, change to post, headers = key -> Content-Type values -> application/json, then click raw for body and type out your object
