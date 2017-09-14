@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const models = require("../models")
 
+//put to update items in the vending machine
 router.put("/api/vendor/items/:itemId", function(req, res){
   models.vendingItems.find({
     where: {

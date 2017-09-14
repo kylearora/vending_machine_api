@@ -2,6 +2,8 @@ const express = require("express")
 const router = express.Router()
 const models = require("../models")
 
+
+//get to list all items in the vending machine
 router.get("/api/customer/items", function (req,res){
   models.vendingItems.findAll()
   .then(function(items){
@@ -10,8 +12,7 @@ router.get("/api/customer/items", function (req,res){
 })
 
 
-//Use postman to input items into table in JSON format
-//for postman, change to post, headers = key -> Content-Type values -> application/json, then click raw for body and type out your object
+//post to add new items to the vending machine
 router.post("/api/vendor/items", function(req,res) {
   const newVending = models.vendingItems.build({
     name: req.body.name,
